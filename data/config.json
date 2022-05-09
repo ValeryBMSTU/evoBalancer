@@ -1,0 +1,7 @@
+{
+  "ages": 100,
+  "agents": 20,
+  "mutation_power": 0.2,
+  "mutation_chance": 0.25,
+  "drop_part": 0.3
+}

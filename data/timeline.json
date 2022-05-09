@@ -1,0 +1,241 @@
+[
+  {
+    "time_point": 10,
+    "results": {
+      "execute_time": 27,
+      "memory_use": 345
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 0,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 122
+      }
+    }
+  },
+  {
+    "time_point": 12,
+    "results": {
+      "execute_time": 30,
+      "memory_use": 405
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 0,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 122
+      }
+    }
+  },
+  {
+    "time_point": 22,
+    "results": {
+      "execute_time": 20,
+      "memory_use": 670
+    },
+    "metrics": {
+
+      "categorials": {
+        "node-2": 1,
+        "node-3": 0,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 122
+      }
+    }
+  },
+  {
+    "time_point": 33,
+    "results": {
+      "execute_time": 18,
+      "memory_use": 500
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 1,
+        "node-3": 0,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 123
+      }
+    }
+  },
+  {
+    "time_point": 34,
+    "results": {
+      "execute_time": 52,
+      "memory_use": 199
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 0,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 180
+      }
+    }
+  },
+  {
+    "time_point": 34,
+    "results": {
+      "execute_time": 63,
+      "memory_use": 201
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 0,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 93
+      }
+    }
+  },
+  {
+    "time_point": 36,
+    "results": {
+      "execute_time": 33,
+      "memory_use": 259
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 1,
+        "node-3": 0,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 101
+      }
+    }
+  },
+  {
+    "time_point": 37,
+    "results": {
+      "execute_time": 27,
+      "memory_use": 292
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 1,
+        "node-3": 0,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 100
+      }
+    }
+  },
+  {
+    "time_point": 39,
+    "results": {
+      "execute_time": 97,
+      "memory_use": 320
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 1,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 100
+      }
+    }
+  },
+  {
+    "time_point": 44,
+    "results": {
+      "execute_time": 122,
+      "memory_use": 320
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 1,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 244
+      }
+    }
+  },
+  {
+    "time_point": 47,
+    "results": {
+      "execute_time": 95,
+      "memory_use": 280
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 1,
+        "edp-2": 0
+      },
+      "numerics": {
+        "request_size": 160
+      }
+    }
+  },
+  {
+    "time_point": 51,
+    "results": {
+      "execute_time": 111,
+      "memory_use": 780
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 1,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 226
+      }
+    }
+  },
+  {
+    "time_point": 52,
+    "results": {
+      "execute_time": 98,
+      "memory_use": 670
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 1,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 210
+      }
+    }
+  },
+  {
+    "time_point": 55,
+    "results": {
+      "execute_time": 123,
+      "memory_use": 695
+    },
+    "metrics": {
+      "categorials": {
+        "node-2": 0,
+        "node-3": 1,
+        "edp-2": 1
+      },
+      "numerics": {
+        "request_size": 213
+      }
+    }
+  }
+]

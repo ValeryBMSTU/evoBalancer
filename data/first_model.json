@@ -1,0 +1,240 @@
+{
+  "type": "simple",
+
+  "nodes": [
+    {
+      "id": "CN-1",
+      "memMb": 16384,
+      "count": 1,
+      "cores": [
+        {
+          "id": "CORE-1",
+          "name": "Intel Xeon E3",
+          "L1_memKb": 256,
+          "L2_memKb": 1024,
+          "L3_memKb": 2048,
+          "freqGhz": 3.5
+        },
+        {
+          "id": "CORE-2",
+          "name": "Intel Xeon E3",
+          "L1_memKb": 256,
+          "L2_memKb": 1024,
+          "L3_memKb": 2048,
+          "freqGhz": 3.5
+        },
+        {
+          "id": "CORE-3",
+          "name": "Intel Xeon E3",
+          "L1_memKb": 256,
+          "L2_memKb": 1024,
+          "L3_memKb": 2048,
+          "freqGhz": 3.5
+        },
+        {
+          "id": "CORE-4",
+          "name": "Intel Xeon E3",
+          "L1_memKb": 256,
+          "L2_memKb": 1024,
+          "L3_memKb": 2048,
+          "freqGhz": 3.5
+        }
+      ]
+    },
+    {
+      "id": "CN-2",
+      "memMb": 8192,
+      "count": 1,
+      "cores": [
+        {
+          "id": "CORE-1",
+          "name": "Intel Xeon E5-2660",
+          "L1_memKb": 64,
+          "L2_memKb": 512,
+          "L3_memKb": 8192,
+          "freqGhz": 2.3
+        },
+        {
+          "id": "CORE-2",
+          "name": "Intel Xeon E5-2660",
+          "L1_memKb": 64,
+          "L2_memKb": 512,
+          "L3_memKb": 8192,
+          "freqGhz": 2.3
+        }
+      ]
+    }
+  ],
+
+  "applications": [
+    {
+      "id": "APP-1",
+      "memMB": 2048,
+      "endpoints": [
+        {
+          "id": "EP-1"
+        }
+      ]
+    }
+  ],
+
+  "instances": [
+    {
+      "node_id": "CN-1",
+      "app_id": "APP-1"
+    },
+    {
+      "node_id": "CN-1",
+      "app_id": "APP-2"
+    }
+  ],
+
+  "calculation_corr": [
+    {
+      "node_id": "CN-1",
+      "applications": [
+        {
+          "app_id": "APP-1",
+          "endpoints": [
+            {
+              "edp_id": "EDP-1",
+              "weight": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": "CN-2",
+      "applications": [
+        {
+          "app_id": "APP-1",
+          "endpoints": [
+            {
+              "edp_id": "EDP-1",
+              "weight": 13
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "events": [
+    {
+      "time": 1,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 12,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 17,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 23,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 27,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 29,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 30,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 30,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 31,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 32,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 32,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 33,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 34,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 36,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 37,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 39,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 42,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 45,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 48,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 53,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 60,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 70,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    },
+    {
+      "time": 88,
+      "app_id": "APP-1",
+      "edp_id": "EDP-1"
+    }
+  ]
+}
