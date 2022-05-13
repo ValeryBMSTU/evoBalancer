@@ -23,12 +23,7 @@ type Node struct {
 	ID    string `json:"id"`
 	Mem   int    `json:"mem"`
 	Cores int    `json:"cores"`
-	//Applications []*App `json:"Applications"`
-	//taskPool []*task
-	//corePool []*core
 	Tasks []*Task
-	//CorePool []*Core
-	//appPointer int
 }
 
 func (n *Node) Send(t *Task) {
@@ -50,19 +45,6 @@ func (n *Node) Send(t *Task) {
 	}
 
 	n.Tasks = append(n.Tasks, t)
-
-	//if len(n.Applications) <= 0 {
-	//	fmt.Println("Количество запущенных приложений равно 0 !!!")
-	//	return
-	//}
-	//
-	//minApp := n.Applications[0]
-	//for _, app := range n.Applications {
-	//	if len(app.Tasks) < len(minApp.Tasks) {
-	//		minApp = app
-	//	}
-	//}
-	//minApp.Send(t)
 }
 
 func (n *Node) Work() {
@@ -85,42 +67,6 @@ func (n *Node) Status() int {
 	return len(n.Tasks)
 }
 
-//type Endpoint struct {
-//	ID string `json:"id"`
-//}
-
-//type App struct {
-//	ID     string `json:"id"`
-//	MemMb  int    `json:"mem_mb"`
-//	Tasks  []*Task
-//	Cores  []*Core
-//	speed  int
-//	NodeID string
-//}
-//
-//func (a *App) Send(t *Task) {
-//	a.Tasks = append(a.Tasks, t)
-//}
-//
-//func (a *App) Work() {
-//	for i, _ := range a.Cores {
-//		if len(a.Tasks) >= i {
-//			a.Tasks[i].RemainingWork -= a.speed
-//		}
-//	}
-//
-//	for i := 0; i < len(a.Tasks); i++ {
-//		if a.Tasks[i].RemainingWork <= 0 {
-//			a.Tasks = remove(a.Tasks, i)
-//			i -= 1
-//		}
-//	}
-//}
-//
-//func (a *App) Status() int {
-//	return len(a.Tasks)
-//}
-
 type Core struct {
 	cacheKb int
 	freqGhz float64
@@ -131,9 +77,8 @@ func (c *Core) work(t *Task) {
 }
 
 type Task struct {
-	Time   int                    `json:"time"`
-	Params map[string]interface{} `json:"params"`
-	//AppID         string `json:"app_id"`
+	Time          int                    `json:"time"`
+	Params        map[string]interface{} `json:"params"`
 	RemainingWork float64
 }
 
@@ -141,37 +86,6 @@ type balancer interface {
 	init(nodes []*Node, rrWeights map[string]float64)
 	balance(t *Task)
 }
-
-//type random struct {
-//	nodePool []*Node
-//}
-//
-//func (r *random) init(nodes []*Node) {
-//	r.nodePool = nodes
-//}
-//
-//func (r *random) balance(t *Task) {
-//	i := rand.Intn(len(r.nodePool))
-//	r.nodePool[i].send(t)
-//}
-
-//type roundRobin struct {
-//	current  int
-//	nodePool []*Node
-//}
-//
-//func (r *roundRobin) init(nodes []*Node) {
-//	r.current = 0
-//	r.nodePool = nodes
-//}
-//
-//func (r *roundRobin) balance(t task) {
-//	r.nodePool[r.current].send(t)
-//	r.current += 1
-//	if r.current == len(r.nodePool) {
-//		r.current = 0
-//	}
-//}
 
 type WeightedRoundRobin struct {
 	NodePool []*WeightedNode
@@ -256,8 +170,6 @@ func main() {
 		return
 	}
 
-	fmt.Println(weights)
-
 	dataConfig := readFile("./data/config.json")
 
 	config := config{}
@@ -266,8 +178,6 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-
-	fmt.Println(weights)
 
 	agents := make([]Agent, config.Agents, config.Agents)
 	for i, _ := range agents {
@@ -284,10 +194,9 @@ func main() {
 		for index, a := range agents {
 			a.Result, a.Score = Run(a.Weights)
 
-			fmt.Println("Age", i, "Agent", index, "Score", a.Score)
+			fmt.Println("Age:", i, "Agent:", index, "Sum time:", a.Score)
 
 			dat, _ := json.Marshal(a.Result)
-			fmt.Println(string(dat))
 
 			err = ioutil.WriteFile("./data/results/age"+strconv.Itoa(i)+"_"+
 				"agent"+strconv.Itoa(index)+".json", dat, 0644)
@@ -310,14 +219,11 @@ func main() {
 	}
 
 	dat, _ := json.Marshal(evoResult)
-	fmt.Println(string(dat))
 
 	err = ioutil.WriteFile("./data/results/evo_result.json", dat, 0644)
 	if err != nil {
 		return
 	}
-
-	fmt.Println("Kek")
 }
 
 func Run(weights map[string]float64) (res Result, score int) {
@@ -334,8 +240,6 @@ func Run(weights map[string]float64) (res Result, score int) {
 		return Result{}, -1.0
 	}
 
-	fmt.Println(nodes)
-
 	dataTasks := readFile("./data/tasks.json")
 	var tasks []*Task
 	err = json.Unmarshal(dataTasks, &tasks)
@@ -344,16 +248,12 @@ func Run(weights map[string]float64) (res Result, score int) {
 		return Result{}, -1.0
 	}
 
-	fmt.Println(tasks)
-
 	dataPredicts := readFile("./data/coef.json")
 	err = json.Unmarshal(dataPredicts, &predicts)
 	if err != nil {
 		fmt.Println(err)
 		return Result{}, -1.0
 	}
-
-	fmt.Println(predicts)
 
 	var balancer balancer
 
@@ -363,7 +263,6 @@ func Run(weights map[string]float64) (res Result, score int) {
 	result := modeling(200, nodes, balancer, tasks)
 
 	dat, _ := json.Marshal(result)
-	fmt.Println(string(dat))
 
 	err = ioutil.WriteFile("./data/result.json", dat, 0644)
 	if err != nil {
